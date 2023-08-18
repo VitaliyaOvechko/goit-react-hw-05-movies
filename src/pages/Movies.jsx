@@ -1,4 +1,8 @@
-export const Movies = () => {
+const Movies = () => {
+  // useEffect(() => {
+  //   //HTTP запит по пошуку
+  // }, []);
+
   return (
     <div>
       <input></input>
@@ -6,3 +10,5 @@ export const Movies = () => {
     </div>
   );
 };
+
+export default Movies;
