@@ -1,9 +1,17 @@
 // import { useEffect } from 'react';
+import { getMovieDetails } from 'components/Api';
 import Cast from 'components/Cast';
 import Reviews from 'components/Reviews';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { useRef, useState, useEffect } from 'react';
+import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 
 const MovieDetails = () => {
+  const [movie, setMovie] = useState({});
+  const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
+
+  // console.log(backLinkLocationRef);
+
   //Для того щоб зробити запит на бекенд по даних конкретного фільму
   //треба взяти id фільму з url і по ньому робити запит
   //params - це об'єкт параметрів {movieId: 'movie-2'}
@@ -13,18 +21,36 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   console.log(movieId);
 
-  // useEffect(() => {
-  //   //HTTP запит по movieId
-  // }, []);
+  useEffect(() => {
+    //HTTP запит по movieId
+    const getMovie = async () => {
+      try {
+        const results = await getMovieDetails(movieId);
+        console.log(results.data);
+        setMovie(results.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMovie();
+  }, [movieId]);
+
+  // const {
+  //   original_title,
+  //   release_date,
+  //   vote_average,
+  //   poster_path,
+  //   overview,
+  //   genres,
+  // } = movie;
 
   return (
     <div>
-      <button>Go back</button>
-      <h1>Сторінка 1 фільму</h1>
+      <Link to={backLinkLocationRef.current}>Go back</Link>
       <ul>
-        <li>Name</li>
-        <li>Overview</li>
-        <li>Genres</li>
+        <li>{movie.title}</li>
+        <li>{movie.overview}</li>
+        <li>genres</li>
       </ul>
       <ul>
         <li>
