@@ -10,7 +10,6 @@ export const getTrendingMovies = async () => {
     const response = await axios.get(
       `${BASE_URL}trending/all/day?api_key=${API_KEY}`
     );
-    console.log(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -39,7 +38,24 @@ export const getMovieDetails = async id => {
   }
 };
 
-//   `${BASE_URL}movie/movie_id=${id}?api_key=${API_KEY}`;
+export const getMovieCast = async id => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}movie/${id}/credits?api_key=${API_KEY}`
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// overview;
-// genres; name;
+export const getMovieReviews = async id => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}`
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
