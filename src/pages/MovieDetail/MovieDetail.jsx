@@ -25,7 +25,6 @@ const MovieDetails = () => {
   const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
   const { movieId } = useParams();
-  console.log(movieId);
 
   useEffect(() => {
     //HTTP запит по movieId

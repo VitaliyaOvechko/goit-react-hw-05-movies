@@ -30,3 +30,10 @@ export const Link = styled(NavLink)`
     background-color: #cae8d3;
   }
 `;
+
+export const Footer = styled.div`
+  margin-top: 20px;
+  padding: 30px;
+  border-top: 1px solid black;
+  background-color: #b8fadd;
+`;

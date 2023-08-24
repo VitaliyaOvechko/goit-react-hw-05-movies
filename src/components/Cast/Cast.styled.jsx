@@ -21,7 +21,7 @@ export const CastItem = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffe3e4;
+  background-color: #ebfef5;
   padding: 10px;
 
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

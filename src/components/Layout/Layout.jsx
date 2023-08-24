@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Container, Header, Link } from './Layout.styled';
+import { Container, Footer, Header, Link } from './Layout.styled';
 const Layout = () => {
   return (
     <>
@@ -15,6 +15,7 @@ const Layout = () => {
           </Suspense>
         </main>
       </Container>
+      <Footer></Footer>
     </>
   );
 };
